@@ -1,0 +1,70 @@
+﻿@model List<MVC4Application.Models.MasterList>
+   
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <div>
+        <a href="@Url.Action("DownloadExcel","Home")">Download Excel</a>
+    </div>
+    <table border="1" cellpadding="1" cellspacing="1">
+        <thead>
+            <tr>
+                <th>
+                    @Html.ActionLink("CompanyName", "Index", new { sortby = ViewBag.SortCompanyName })
+                </th>
+                <th>
+                    @Html.ActionLink("ContactName", "Index", new { sortby = ViewBag.SortContactName })
+
+                </th>
+                <th>
+                    PhoneNumber
+                </th>
+                <th>
+                    EmailId
+                </th>
+                <th>
+                    @Html.ActionLink("YearsInBusiness", "Index", new { sortby = ViewBag.SortYearsInBusiness })
+
+                </th>
+                @*<th>
+                        ContactPhoneNumber
+                    </th>
+                    <th>
+                        ContactEmail
+                    </th>*@
+
+
+            </tr>
+
+        </thead>
+        <tbody>
+            @foreach (var obj in Model)
+            {
+                <tr>
+                    <td>
+                        @obj.CompanyName
+                    </td>
+                    <td>
+                        @obj.ContactName
+                    </td>
+                    <td>
+                        @obj.PhoneNumber
+                    </td>
+                    <td>
+                        @obj.EmailId
+                    </td>
+                    <td>
+                        @obj.YearsInBusiness
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+
+    </table>
+</body>
+</html>
+
